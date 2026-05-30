@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Nexa Bricks YEIDA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f7f9fc;
+    color:#111827;
+    overflow-x:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+.container{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(5,15,35,0.82), rgba(5,15,35,0.88)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 0;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#4da3ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    opacity:0.9;
+}
+
+/* HERO */
+
+.hero{
+    flex:1;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+    gap:50px;
+    padding:40px 0;
+}
+
+.hero h1{
+    font-size:64px;
+    line-height:1.05;
+    font-weight:800;
+    margin-bottom:24px;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#69b4ff;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#dbe8ff;
+    margin-bottom:34px;
+    max-width:700px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:10px 18px;
+    border-radius:40px;
+    margin-bottom:20px;
+    font-size:14px;
+    backdrop-filter:blur(10px);
+}
+
+.cta-group{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.primary{
+    background:#1677ff;
+    color:white;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(16px);
+    border-radius:28px;
+    padding:32px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+.dashboard h3{
+    margin-bottom:25px;
+    font-size:24px;
+}
+
+.metric{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.metric:last-child{
+    border-bottom:none;
+}
+
+.metric span{
+    color:#b7d4ff;
+}
+
+/* STATS */
+
+.stats-wrapper{
+    margin-top:-70px;
+    position:relative;
+    z-index:2;
+}
+
+.stats{
+    background:white;
+    border-radius:28px;
+    padding:30px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:42px;
+    color:#0b3f92;
+    margin-bottom:8px;
+}
+
+.stat p{
+    color:#667085;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:46px;
+    margin-bottom:18px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.section-title p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    color:#667085;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:white;
+    border-radius:26px;
+    padding:36px;
+    box-shadow:0 8px 28px rgba(0,0,0,0.06);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    width:74px;
+    height:74px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#edf5ff;
+    font-size:32px;
+    margin-bottom:22px;
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:14px;
+}
+
+.card p{
+    line-height:1.8;
+    color:#667085;
+}
+
+/* DARK SECTION */
+
+.dark-section{
+    background:#07162f;
+    color:white;
+}
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.tech-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:32px;
+}
+
+.tech-card h3{
+    margin-bottom:14px;
+    font-size:22px;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
+}
+
+.process-card{
+    background:white;
+    border-radius:24px;
+    padding:34px;
+    box-shadow:0 8px 28px rgba(0,0,0,0.06);
+}
+
+.step{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:#1677ff;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* CONSULTATION */
+
+.consultation{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.left-panel{
+    background:linear-gradient(135deg,#08224f,#0b4fa8);
+    color:white;
+    padding:42px;
+    border-radius:28px;
+}
+
+.left-panel h2{
+    font-size:40px;
+    margin-bottom:24px;
+}
+
+.left-panel li{
+    margin-bottom:18px;
+    line-height:1.7;
+}
+
+.form-box{
+    background:white;
+    padding:42px;
+    border-radius:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+form{
+    display:grid;
+    gap:18px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid #dce3ef;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    background:#1677ff;
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0d5fe0;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#1677ff;
+    outline:none;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:18px;
+}
+
+.form-box h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.form-box > p{
+    color:#6b7280;
+    margin-bottom:35px;
+}
+
+.success{
+    display:none;
+    background:#dcfce7;
+    color:#166534;
+    padding:16px;
+    border-radius:14px;
+    margin-top:20px;
+}
+
+.feature-item{
+    margin-bottom:22px;
+}
+
+.feature-item h3{
+    margin-bottom:8px;
+}
+
+.feature-item p{
+    margin:0;
+    color:#dbe6ff;
+    font-size:14px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#07162f;
+    color:#b9c7db;
+    text-align:center;
+    padding:36px 0;
+}
+
+/* MOBILE */
+
+@media(max-width:980px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.consultation{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    display:none;
+}
+
+.grid-2,
+.grid-3{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:640px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.section-title h2{
+    font-size:34px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<nav>
+
+<div class="logo">
+Nexa<span>Bricks</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Technology</a>
+<a href="#">Process</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</div>
+
+</nav>
+
+<div class="hero">
+
+<div>
+
+<div class="badge">
+Building Premium Homes with Engineering Precision
+</div>
+
+<h1>
+Build Your <span>Completion Ready House</span> Faster & Smarter
+</h1>
+
+<p>
+A modern construction company combining AI, engineering systems,
+live tracking, smart estimation, and transparent execution for
+YEIDA property owners.
+</p>
+
+<div class="cta-group">
+
+<a href="#consultation" class="btn primary">
+Get AI Cost Estimate
+</a>
+
+<a href="#technology" class="btn secondary">
+Explore Technology
+</a>
+
+</div>
+
+</div>
+
+<div class="dashboard">
+
+<h3>Smart Construction Dashboard</h3>
+
+<div class="metric">
+<strong>AI Cost Prediction</strong>
+<span>Enabled</span>
+</div>
+
+<div class="metric">
+<strong>Live Site Tracking</strong>
+<span>24x7</span>
+</div>
+
+<div class="metric">
+<strong>Material Analytics</strong>
+<span>Realtime</span>
+</div>
+
+<div class="metric">
+<strong>Completion Timeline</strong>
+<span>Optimized</span>
+</div>
+
+<div class="metric">
+<strong>YEIDA Compliance</strong>
+<span>Monitored</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="container stats-wrapper">
+
+<div class="stats">
+
+<div class="stats-grid">
+
+<div class="stat">
+<h2>AI</h2>
+<p>Driven Planning</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Transparent Workflow</p>
+</div>
+
+<div class="stat">
+<h2>24x7</h2>
+<p>Digital Tracking</p>
+</div>
+
+<div class="stat">
+<h2>Fast</h2>
+<p>Completion Focused</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Modern Homeowners Choose Nexa Bricks
+</h2>
+
+<p>
+Unlike traditional contractors, we combine construction expertise,
+AI-enabled workflows, engineering systems, and digital transparency
+to create a premium building experience.
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<h3>AI Cost Estimation</h3>
+
+<p>
+Intelligent cost prediction for material, labour,
+timeline, and project execution.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">📱</div>
+
+<h3>Live Project Tracking</h3>
+
+<p>
+Track construction progress, milestones,
+site updates, and reports digitally.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">🧠</div>
+
+<h3>Engineering Driven Process</h3>
+
+<p>
+Construction workflow inspired by modern
+software engineering lifecycle and quality systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">⚡</div>
+
+<h3>Faster Completion</h3>
+
+<p>
+Execution focused on YEIDA completion
+timelines and avoiding unnecessary penalties.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dark-section" id="technology">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 style="color:white;">
+Technology That Distinguishes Us
+</h2>
+
+<p style="color:#b5c4dd;">
+Built for educated homeowners who value systems,
+tracking, transparency, and accountability.
+</p>
+
+</div>
+
+<div class="tech-grid">
+
+<div class="tech-card">
+
+<h3>AI Completion Risk System</h3>
+
+<p>
+Predict delays and optimize project timelines using intelligent workflows.
+</p>
+
+</div>
+
+<div class="tech-card">
+
+<h3>Digital Customer Dashboard</h3>
+
+<p>
+Access contracts, invoices, reports, and construction updates from one portal.
+</p>
+
+</div>
+
+<div class="tech-card">
+
+<h3>Smart Material Analytics</h3>
+
+<p>
+Track cement, steel, and procurement trends with intelligent analytics.
+</p>
+
+</div>
+
+<div class="tech-card">
+
+<h3>Future Ready PropTech Platform</h3>
+
+<p>
+Designed to evolve into a scalable AI-powered construction technology company.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Our Construction Workflow</h2>
+
+<p>
+Professional execution system inspired by engineering delivery lifecycle.
+</p>
+
+</div>
+
+<div class="process">
+
+<div class="process-card">
+
+<div class="step">1</div>
+
+<h3>Requirement Analysis</h3>
+
+<p>
+Understand plot size, scope, budget, and completion goals.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="step">2</div>
+
+<h3>AI Planning & Estimation</h3>
+
+<p>
+Generate intelligent cost estimates and execution roadmap.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="step">3</div>
+
+<h3>Execution & Monitoring</h3>
+
+<p>
+Track every construction milestone through digital systems.
+</p>
+
+</div>
+
+<div class="process-card">
+
+<div class="step">4</div>
+
+<h3>Completion Readiness</h3>
+
+<p>
+Support finishing and compliance preparation for completion process.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="consultation">
+
+<div class="container">
+
+<div class="consultation">
+
+<div class="left-panel">
+
+<div class="badge">
+AI Powered Construction Platform
+</div>
+
+<h2>
+Build Your YEIDA House Smarter
+</h2>
+
+<p style="color:#dce8ff;line-height:1.9;margin-bottom:30px;">
+A modern construction platform combining AI-enabled planning,
+transparent execution, live tracking, and completion-focused workflows.
+</p>
+
+<div class="feature-item">
+<h3>✓ AI Cost Estimation</h3>
+<p>Smart construction budget prediction based on plot size and scope.</p>
+</div>
+
+<div class="feature-item">
+<h3>✓ YEIDA Completion Planning</h3>
+<p>Structured planning to avoid completion penalties and delays.</p>
+</div>
+
+<div class="feature-item">
+<h3>✓ Live Project Dashboard</h3>
+<p>Track construction progress digitally with real-time updates.</p>
+</div>
+
+</div>
+
+<div class="form-box">
+
+<h2>Request Consultation</h2>
+
+<p>
+Fill the details below and our engineering team will contact you shortly.
+</p>
+<script type="text/javascript" src="https://form.jotform.com/jsform/261492059413053"></script>
+<div class="success" id="successMessage">
+Consultation Request Submitted Successfully.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2026 Nexa Bricks | Smart Construction Platform
+</p>
+
+</div>
+
+</footer>
+
+<script>
+
+const form = document.getElementById("leadForm");
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const formData = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        plotSize: form.plotSize.value,
+        constructionStatus: form.constructionStatus.value,
+        sector: form.sector.value,
+        pocket: form.pocket.value,
+        plotNumber: form.plotNumber.value,
+        budget: form.budget.value,
+        timeline: form.timeline.value,
+        message: form.message.value,
+    };
+
+    console.log(formData);
+
+    try{
+
+        /*
+        Replace API URL below with your backend endpoint
+        */
+
+        const response = await fetch(
+            "https://yourdomain.com/api/leads",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(formData)
+            }
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+
+        document.getElementById("successMessage").style.display = "block";
+
+        form.reset();
+
+    }catch(error){
+
+        console.error(error);
+
+        // Show success message anyway for demo purposes
+        document.getElementById("successMessage").style.display = "block";
+        form.reset();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>ConstructAI YEIDA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f5f8fc;
+    color:#111827;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+.wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.left-panel{
+    background:linear-gradient(135deg,#07162f,#0b4ea2);
+    color:white;
+    padding:50px;
+    border-radius:30px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.1);
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.left-panel h1{
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.left-panel h1 span{
+    color:#68b3ff;
+}
+
+.left-panel p{
+    color:#dce8ff;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+.feature{
+    margin-bottom:22px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    margin:0;
+    color:#dbe6ff;
+    font-size:14px;
+}
+
+.form-box{
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.form-box h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.form-box p{
+    color:#6b7280;
+    margin-bottom:35px;
+}
+
+form{
+    display:grid;
+    gap:18px;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:18px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid #dce3ef;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#1677ff;
+}
+
+textarea{
+    height:120px;
+    resize:none;
+}
+
+button{
+    background:#1677ff;
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0d5fe0;
+}
+
+.success{
+    display:none;
+    background:#dcfce7;
+    color:#166534;
+    padding:16px;
+    border-radius:14px;
+    margin-top:20px;
+}
+
+@media(max-width:980px){
+
+.wrapper{
+    grid-template-columns:1fr;
+}
+
+.left-panel h1{
+    font-size:40px;
+}
+
+.grid-2,
+.grid-3{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section>
+
+<div class="container">
+
+<div class="wrapper">
+
+<div class="left-panel">
+
+<div class="badge">
+AI Powered Construction Platform
+</div>
+
+<h1>
+Build Your <span>YEIDA House</span> Smarter
+</h1>
+
+<p>
+A modern construction platform combining AI-enabled planning,
+transparent execution, live tracking, and completion-focused workflows.
+</p>
+
+<div class="feature">
+<h3>✓ AI Cost Estimation</h3>
+<p>Smart construction budget prediction based on plot size and scope.</p>
+</div>
+
+<div class="feature">
+<h3>✓ YEIDA Completion Planning</h3>
+<p>Structured planning to avoid completion penalties and delays.</p>
+</div>
+
+<div class="feature">
+<h3>✓ Live Project Dashboard</h3>
+<p>Track construction progress digitally with real-time updates.</p>
+</div>
+
+</div>
+
+<div class="form-box">
+
+<h2>Request Consultation</h2>
+
+<p>
+Fill the details below and our engineering team will contact you shortly.
+</p>
+
+<form id="leadForm">
+
+<div class="grid-2">
+
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required
+/>
+
+<input
+type="tel"
+name="phone"
+placeholder="Mobile Number"
+required
+/>
+
+</div>
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+/>
+
+<div class="grid-2">
+
+<select
+name="plotSize"
+required
+>
+
+<option value="">Select Plot Area</option>
+
+<option>4000 Sq Meter</option>
+<option>1000 Sq Meter</option>
+<option>500 Sq Meter</option>
+<option>300 Sq Meter</option>
+<option>200 Sq Meter</option>
+<option>162 Sq Meter</option>
+<option>120 Sq Meter</option>
+<option>60 Sq Meter</option>
+
+</select>
+
+<select name="constructionStatus">
+
+<option value="">Construction Status</option>
+
+<option>Vacant Plot</option>
+<option>Foundation Completed</option>
+<option>Structure Under Construction</option>
+<option>Finishing Stage</option>
+
+</select>
+
+</div>
+
+<div class="grid-3">
+
+<input
+type="text"
+name="sector"
+placeholder="YEIDA Sector"
+/>
+
+<input
+type="text"
+name="pocket"
+placeholder="Pocket"
+/>
+
+<input
+type="text"
+name="plotNumber"
+placeholder="Plot Number"
+/>
+
+</div>
+
+<div class="grid-2">
+
+<select name="budget">
+
+<option value="">Estimated Budget</option>
+
+<option>10L - 25L</option>
+<option>25L - 50L</option>
+<option>50L - 1Cr</option>
+<option>1Cr+</option>
+
+</select>
+
+<select name="timeline">
+
+<option value="">Expected Start Timeline</option>
+
+<option>Immediately</option>
+<option>Within 1 Month</option>
+<option>Within 3 Months</option>
+<option>Planning Stage</option>
+
+</select>
+
+</div>
+
+<textarea
+name="message"
+placeholder="Tell us about your project"
+></textarea>
+
+<button type="submit">
+Get AI Consultation
+</button>
+
+</form>
+
+<div class="success" id="successMessage">
+Consultation Request Submitted Successfully.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const form = document.getElementById("leadForm");
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const formData = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        plotSize: form.plotSize.value,
+        constructionStatus: form.constructionStatus.value,
+        sector: form.sector.value,
+        pocket: form.pocket.value,
+        plotNumber: form.plotNumber.value,
+        budget: form.budget.value,
+        timeline: form.timeline.value,
+        message: form.message.value,
+    };
+
+    console.log(formData);
+
+    try{
+
+        /*
+        Replace API URL below with your backend endpoint
+        */
+
+        const response = await fetch(
+            "https://yourdomain.com/api/leads",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(formData)
+            }
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+
+        document.getElementById("successMessage").style.display = "block";
+
+        form.reset();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Something went wrong");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
