@@ -1,1030 +1,1165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Nexa Bricks YEIDA</title>
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nexa Bricks YEIDA – Premium Construction</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J3VZ10D6RY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J3VZ10D6RY');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#04112b;
+  --navy2:#061c4a;
+  --blue:#1155cc;
+  --blue2:#2d7bff;
+  --accent:#f7a614;
+  --accent2:#00d4a0;
+  --light:#f2f5fb;
+  --white:#fff;
+  --text:#1a1f36;
+  --muted:#667085;
+  --border:#e0e7f0;
+  --radius:20px;
+  --shadow:0 8px 32px rgba(0,0,0,0.08);
 }
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--light);color:var(--text);overflow-x:hidden;}
 
-body{
-    background:#f7f9fc;
-    color:#111827;
-    overflow-x:hidden;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-.container{
-    width:90%;
-    max-width:1280px;
-    margin:auto;
-}
-
-/* NAVBAR */
-
-header{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(5,15,35,0.82), rgba(5,15,35,0.88)),
-    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    display:flex;
-    flex-direction:column;
-}
-
+/* ─── NAV ─── */
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:28px 0;
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 5%;
+  background:rgba(4,17,43,0.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:.3s;
+}
+.logo{font-size:24px;font-weight:800;color:#fff;letter-spacing:-0.5px;text-decoration:none;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--accent);color:var(--navy);
+  padding:10px 20px;border-radius:50px;
+  font-weight:700;font-size:13px;text-decoration:none;transition:.2s;
+  white-space:nowrap;
+}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px);}
+
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;padding:4px;background:none;border:none;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;background:#fff;
+  border-radius:2px;transition:.3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile nav drawer */
+.mobile-menu{
+  display:none;position:fixed;top:64px;left:0;right:0;z-index:199;
+  background:rgba(4,17,43,0.98);backdrop-filter:blur(20px);
+  padding:24px 5% 32px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  flex-direction:column;gap:0;
+  transform:translateY(-10px);opacity:0;
+  transition:opacity .25s,transform .25s;
+}
+.mobile-menu.open{transform:translateY(0);opacity:1;}
+.mobile-menu a{
+  color:rgba(255,255,255,0.85);text-decoration:none;
+  font-size:16px;font-weight:500;padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);display:block;
+}
+.mobile-menu a:last-child{border:none;}
+.mobile-menu .mob-cta{
+  margin-top:18px;background:var(--accent);color:var(--navy);
+  padding:14px;border-radius:12px;text-align:center;font-weight:700;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-.logo span{
-    color:#4da3ff;
-}
-
-.nav-links{
-    display:flex;
-    gap:30px;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-size:15px;
-    opacity:0.9;
-}
-
-/* HERO */
-
+/* ─── HERO ─── */
 .hero{
-    flex:1;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    align-items:center;
-    gap:50px;
-    padding:40px 0;
+  min-height:100vh;
+  background:
+    linear-gradient(135deg,rgba(4,17,43,0.96) 0%,rgba(6,28,74,0.9) 100%),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+  display:flex;align-items:center;
+  padding:100px 5% 70px;
+  position:relative;overflow:hidden;
 }
-
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(17,85,204,0.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  display:grid;grid-template-columns:1fr 400px;
+  gap:50px;align-items:center;
+  width:100%;max-width:1280px;margin:auto;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(247,166,20,0.15);border:1px solid rgba(247,166,20,0.3);
+  color:var(--accent);padding:8px 16px;border-radius:50px;
+  font-size:12px;font-weight:600;margin-bottom:20px;
+}
 .hero h1{
-    font-size:64px;
-    line-height:1.05;
-    font-weight:800;
-    margin-bottom:24px;
-    letter-spacing:-2px;
+  font-size:clamp(34px,5vw,58px);font-weight:800;
+  color:#fff;line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px;
+}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero-sub{
+  font-size:clamp(14px,2vw,17px);line-height:1.8;
+  color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:520px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--accent);color:var(--navy);
+  padding:14px 26px;border-radius:50px;font-weight:700;font-size:14px;
+  text-decoration:none;transition:.25s;display:inline-block;white-space:nowrap;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(247,166,20,0.4);}
+.btn-outline{
+  border:1.5px solid rgba(255,255,255,0.25);color:#fff;
+  padding:14px 26px;border-radius:50px;font-weight:600;font-size:14px;
+  text-decoration:none;transition:.25s;display:inline-block;
+  backdrop-filter:blur(6px);white-space:nowrap;
+}
+.btn-outline:hover{border-color:rgba(255,255,255,0.55);}
+
+/* Hero dashboard card */
+.hero-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(20px);
+  border-radius:22px;padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+.hero-card-title{
+  font-size:11px;color:rgba(255,255,255,0.45);
+  text-transform:uppercase;letter-spacing:2.5px;margin-bottom:18px;font-weight:600;
+}
+.metric-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.metric-row:last-child{border:none;}
+.metric-row strong{color:rgba(255,255,255,0.88);font-size:13px;font-weight:500;}
+.metric-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;}
+.badge-green{background:rgba(0,212,160,0.18);color:var(--accent2);}
+.badge-blue{background:rgba(17,85,204,0.3);color:#7eb3ff;}
+.badge-yellow{background:rgba(247,166,20,0.18);color:var(--accent);}
+
+/* Hero trust strip */
+.hero-trust{
+  display:flex;gap:24px;margin-top:32px;flex-wrap:wrap;
+}
+.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);font-size:12px;}
+.trust-item span{font-size:16px;}
+
+/* ─── STATS ─── */
+.stats-strip{background:var(--navy);padding:36px 5%;}
+.stats-inner{
+  max-width:1280px;margin:auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:16px;text-align:center;
+}
+.stat-item{padding:10px;}
+.stat-item h2{
+  font-size:clamp(32px,4vw,48px);font-weight:800;
+  color:var(--accent);letter-spacing:-1px;margin-bottom:4px;
+  line-height:1;
+}
+.stat-item p{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.4;}
+
+/* ─── SHARED SECTION STYLES ─── */
+section{padding:80px 5%;}
+.sec-inner{max-width:1280px;margin:auto;}
+.sec-label{
+  display:inline-block;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:3px;
+  color:var(--blue);background:rgba(17,85,204,0.1);
+  padding:5px 14px;border-radius:50px;margin-bottom:14px;
+}
+.sec-title{
+  font-size:clamp(28px,4vw,44px);font-weight:800;
+  letter-spacing:-1px;margin-bottom:12px;line-height:1.1;
+}
+.sec-sub{color:var(--muted);max-width:600px;line-height:1.8;font-size:15px;}
+.sec-head{margin-bottom:50px;}
+.sec-head.center{text-align:center;}
+.sec-head.center .sec-sub{margin:0 auto;}
+
+/* ─── WHY CARDS ─── */
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.why-card{
+  background:var(--white);border-radius:20px;
+  padding:28px 24px;border:1px solid var(--border);
+  transition:.3s;position:relative;overflow:hidden;
+}
+.why-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--accent));
+  opacity:0;transition:.3s;
+}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.09);}
+.why-card:hover::before{opacity:1;}
+.wc-icon{font-size:34px;margin-bottom:16px;}
+.why-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.75;}
+
+/* ─── TRUST BADGES (Enterprise) ─── */
+.trust-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.trust-section .sec-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:40px;flex-wrap:wrap;padding:32px 0;
+}
+.trust-badge{
+  display:flex;align-items:center;gap:10px;
+  color:var(--muted);font-size:13px;font-weight:600;
+}
+.trust-badge .tb-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:rgba(17,85,204,0.08);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
 }
 
-.hero h1 span{
-    color:#69b4ff;
+/* ─── PROCESS ─── */
+.process-section{background:var(--navy);color:#fff;}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:22px;position:relative;
+}
+.process-connector{
+  display:none;
+}
+.process-step{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:28px 22px;
+  position:relative;z-index:1;transition:.3s;
+}
+.process-step:hover{background:rgba(255,255,255,0.09);}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:17px;color:#fff;
+  margin-bottom:18px;flex-shrink:0;
+}
+.process-step h3{font-size:15px;font-weight:700;margin-bottom:8px;}
+.process-step p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.75;}
+.process-duration{
+  margin-top:12px;display:inline-block;
+  font-size:11px;font-weight:700;color:var(--accent);
+  background:rgba(247,166,20,0.12);padding:3px 10px;border-radius:50px;
 }
 
-.hero p{
-    font-size:18px;
-    line-height:1.8;
-    color:#dbe8ff;
-    margin-bottom:34px;
-    max-width:700px;
+/* ─── PROJECTS ─── */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.proj-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);transition:.3s;
 }
-
-.badge{
-    display:inline-block;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.12);
-    padding:10px 18px;
-    border-radius:40px;
-    margin-bottom:20px;
-    font-size:14px;
-    backdrop-filter:blur(10px);
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1);}
+.proj-img{height:190px;background-size:cover;background-position:center;position:relative;}
+.proj-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.55));
 }
-
-.cta-group{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
+.proj-tag{
+  position:absolute;top:12px;left:12px;z-index:1;
+  background:rgba(0,212,160,0.9);color:#fff;
+  font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;
 }
+.proj-body{padding:22px;}
+.proj-body h3{font-size:16px;font-weight:700;margin-bottom:6px;}
+.proj-meta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.proj-meta span{font-size:11px;color:var(--muted);}
 
-.btn{
-    padding:16px 28px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s ease;
+/* ─── REVIEWS ─── */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.review-card{
+  background:var(--white);border-radius:20px;padding:28px;
+  border:1px solid var(--border);
 }
-
-.primary{
-    background:#1677ff;
-    color:white;
+.stars{color:var(--accent);font-size:16px;margin-bottom:14px;letter-spacing:1px;}
+.review-text{font-size:14px;line-height:1.85;color:var(--text);margin-bottom:18px;}
+.reviewer{display:flex;align-items:center;gap:12px;}
+.rev-avatar{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#fff;font-size:14px;
 }
+.reviewer h4{font-size:13px;font-weight:700;}
+.reviewer p{font-size:11px;color:var(--muted);}
 
-.primary:hover{
-    transform:translateY(-3px);
+/* ─── GUARANTEE SECTION ─── */
+.guarantee-section{
+  background:linear-gradient(135deg,var(--blue) 0%,var(--navy2) 100%);
+  color:#fff;
 }
-
-.secondary{
-    border:1px solid rgba(255,255,255,0.2);
-    color:white;
-    backdrop-filter:blur(10px);
+.guarantee-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
 }
-
-/* DASHBOARD */
-
-.dashboard{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(16px);
-    border-radius:28px;
-    padding:32px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+.g-card{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;padding:28px 24px;text-align:center;
 }
+.g-card .gi{font-size:40px;margin-bottom:16px;}
+.g-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.g-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.75;}
 
-.dashboard h3{
-    margin-bottom:25px;
-    font-size:24px;
+/* ─── CALCULATOR ─── */
+.calculator-section{background:linear-gradient(135deg,#04112b 0%,#061c4a 100%);}
+.calc-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:36px;align-items:start;
 }
-
-.metric{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+.calc-form{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:22px;padding:32px;
 }
-
-.metric:last-child{
-    border-bottom:none;
+.calc-form h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
+.calc-form .sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;line-height:1.6;}
+.form-group{margin-bottom:16px;}
+.form-group label{
+  display:block;font-size:11px;font-weight:700;
+  color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;
 }
-
-.metric span{
-    color:#b7d4ff;
+.form-group input,.form-group select{
+  width:100%;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:11px;padding:12px 14px;
+  color:#fff;font-size:13px;font-family:'Poppins',sans-serif;
+  transition:.2s;appearance:none;
 }
-
-/* STATS */
-
-.stats-wrapper{
-    margin-top:-70px;
-    position:relative;
-    z-index:2;
+.form-group input:focus,.form-group select:focus{
+  border-color:var(--accent);outline:none;background:rgba(255,255,255,0.1);
 }
-
-.stats{
-    background:white;
-    border-radius:28px;
-    padding:30px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+.form-group select option{background:#04112b;color:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.calc-btn{
+  width:100%;background:linear-gradient(135deg,var(--accent),#f5c842);
+  color:var(--navy);border:none;padding:15px;border-radius:13px;
+  font-family:'Poppins',sans-serif;font-size:15px;font-weight:800;
+  cursor:pointer;transition:.25s;margin-top:6px;
 }
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    text-align:center;
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(247,166,20,0.4);}
+.disclaimer{
+  font-size:10.5px;color:rgba(255,255,255,0.28);
+  line-height:1.7;margin-top:14px;
+  border-top:1px solid rgba(255,255,255,0.07);padding-top:12px;
 }
-
-.stat h2{
-    font-size:42px;
-    color:#0b3f92;
-    margin-bottom:8px;
+.calc-result{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;padding:32px;
+  min-height:380px;display:flex;flex-direction:column;
 }
-
-.stat p{
-    color:#667085;
+.result-placeholder{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:20px;
 }
-
-/* SECTIONS */
-
-section{
-    padding:100px 0;
+.result-placeholder .big-icon{font-size:52px;margin-bottom:14px;opacity:.25;}
+.result-placeholder p{color:rgba(255,255,255,0.28);font-size:14px;line-height:1.7;}
+.result-content{display:none;flex-direction:column;gap:18px;}
+.result-header{
+  font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);
+  text-transform:uppercase;letter-spacing:2.5px;margin-bottom:4px;
 }
-
-.section-title{
-    text-align:center;
-    margin-bottom:70px;
+.cost-range-box{
+  background:linear-gradient(135deg,rgba(17,85,204,0.3),rgba(247,166,20,0.15));
+  border:1px solid rgba(247,166,20,0.3);
+  border-radius:16px;padding:24px;text-align:center;
 }
-
-.section-title h2{
-    font-size:46px;
-    margin-bottom:18px;
-    font-weight:800;
-    letter-spacing:-1px;
+.cost-range{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--accent);letter-spacing:-0.5px;}
+.cost-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.5;}
+.breakdown-list{display:flex;flex-direction:column;gap:8px;}
+.breakdown-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;background:rgba(255,255,255,0.05);border-radius:10px;gap:8px;
 }
-
-.section-title p{
-    max-width:800px;
-    margin:auto;
-    line-height:1.8;
-    color:#667085;
+.breakdown-item span{font-size:12px;color:rgba(255,255,255,0.6);}
+.breakdown-item strong{font-size:12px;color:#fff;font-weight:600;white-space:nowrap;}
+.note-box{
+  background:rgba(0,212,160,0.08);border:1px solid rgba(0,212,160,0.2);
+  border-radius:13px;padding:14px;
 }
-
-/* FEATURES */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:28px;
+.note-box p{font-size:11px;color:rgba(0,212,160,0.85);line-height:1.7;}
+.loading-state{display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;flex:1;}
+.spinner{
+  width:38px;height:38px;border:3px solid rgba(255,255,255,0.1);
+  border-top-color:var(--accent);border-radius:50%;
+  animation:spin .8s linear infinite;
 }
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-text{color:rgba(255,255,255,0.45);font-size:13px;}
 
-.card{
-    background:white;
-    border-radius:26px;
-    padding:36px;
-    box-shadow:0 8px 28px rgba(0,0,0,0.06);
-    transition:0.3s ease;
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+.contact-left{
+  background:linear-gradient(135deg,var(--navy),#0a2560);
+  border-radius:22px;padding:36px;color:#fff;
 }
-
-.card:hover{
-    transform:translateY(-8px);
+.contact-left h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:12px;}
+.contact-left > p{color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:26px;font-size:14px;}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,0.07);border-radius:13px;
+  padding:14px 16px;margin-bottom:12px;
 }
-
-.icon{
-    width:74px;
-    height:74px;
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#edf5ff;
-    font-size:32px;
-    margin-bottom:22px;
+.ci-label{font-size:10px;color:rgba(255,255,255,0.38);text-transform:uppercase;letter-spacing:1px;}
+.ci-val{font-size:14px;font-weight:600;color:#fff;text-decoration:none;word-break:break-word;}
+.ci-val:hover{color:var(--accent);}
+.contact-btns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.wabtn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#25D366;color:#fff;padding:12px 20px;border-radius:11px;
+  text-decoration:none;font-weight:700;font-size:13px;transition:.2s;
 }
-
-.card h3{
-    font-size:24px;
-    margin-bottom:14px;
+.wabtn:hover{opacity:.88;}
+.mailbtn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue);color:#fff;padding:12px 20px;border-radius:11px;
+  text-decoration:none;font-weight:700;font-size:13px;transition:.2s;
 }
-
-.card p{
-    line-height:1.8;
-    color:#667085;
-}
-
-/* DARK SECTION */
-
-.dark-section{
-    background:#07162f;
-    color:white;
-}
-
-.tech-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.tech-card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:24px;
-    padding:32px;
-}
-
-.tech-card h3{
-    margin-bottom:14px;
-    font-size:22px;
-}
-
-/* PROCESS */
-
-.process{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:24px;
-}
-
-.process-card{
-    background:white;
-    border-radius:24px;
-    padding:34px;
-    box-shadow:0 8px 28px rgba(0,0,0,0.06);
-}
-
-.step{
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    background:#1677ff;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-/* CONSULTATION */
-
-.consultation{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-}
-
-.left-panel{
-    background:linear-gradient(135deg,#08224f,#0b4fa8);
-    color:white;
-    padding:42px;
-    border-radius:28px;
-}
-
-.left-panel h2{
-    font-size:40px;
-    margin-bottom:24px;
-}
-
-.left-panel li{
-    margin-bottom:18px;
-    line-height:1.7;
-}
-
+.mailbtn:hover{opacity:.88;}
 .form-box{
-    background:white;
-    padding:42px;
-    border-radius:28px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  background:#fff;border-radius:22px;padding:36px;
+  box-shadow:var(--shadow);
+}
+.form-box h2{font-size:clamp(22px,3vw,30px);font-weight:800;margin-bottom:6px;}
+.form-box .sub{color:var(--muted);font-size:13px;margin-bottom:24px;}
+
+/* Map */
+.map-wrap{
+  margin-top:48px;border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);height:320px;
 }
 
-form{
-    display:grid;
-    gap:18px;
+/* ─── FOOTER ─── */
+footer{background:var(--navy);color:rgba(255,255,255,0.4);padding:28px 5%;}
+.footer-inner{
+  max-width:1280px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+}
+.footer-logo{font-size:18px;font-weight:800;color:#fff;}
+.footer-logo span{color:var(--accent);}
+footer p{font-size:12px;}
+footer a{color:var(--accent);text-decoration:none;}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:12px;transition:.2s;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+
+/* ─── ANIMATIONS ─── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+/* ─── MOBILE FIRST RESPONSIVE ─── */
+@media(max-width:1100px){
+  .why-grid{grid-template-columns:repeat(3,1fr);}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
 }
 
-input,select,textarea{
-    width:100%;
-    padding:16px;
-    border-radius:14px;
-    border:1px solid #dce3ef;
-    font-size:15px;
-}
-
-textarea{
-    resize:none;
-    height:120px;
-}
-
-button{
-    background:#1677ff;
-    color:white;
-    border:none;
-    padding:18px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#0d5fe0;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#1677ff;
-    outline:none;
-}
-
-.grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.grid-3{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:18px;
-}
-
-.form-box h2{
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.form-box > p{
-    color:#6b7280;
-    margin-bottom:35px;
-}
-
-.success{
-    display:none;
-    background:#dcfce7;
-    color:#166534;
-    padding:16px;
-    border-radius:14px;
-    margin-top:20px;
-}
-
-.feature-item{
-    margin-bottom:22px;
-}
-
-.feature-item h3{
-    margin-bottom:8px;
-}
-
-.feature-item p{
-    margin:0;
-    color:#dbe6ff;
-    font-size:14px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#07162f;
-    color:#b9c7db;
-    text-align:center;
-    padding:36px 0;
-}
-
-/* MOBILE */
-
-@media(max-width:980px){
-
-.hero{
-    grid-template-columns:1fr;
-}
-
-.hero h1{
-    font-size:48px;
-}
-
-.stats-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.consultation{
-    grid-template-columns:1fr;
-}
-
-.nav-links{
-    display:none;
-}
-
-.grid-2,
-.grid-3{
-    grid-template-columns:1fr;
-}
-
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .hero h1{letter-spacing:-0.5px;}
+  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  .reviews-grid{grid-template-columns:1fr 1fr;}
+  .guarantee-grid{grid-template-columns:1fr 1fr;}
+  .calc-wrap{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .mobile-menu{display:flex;}
 }
 
 @media(max-width:640px){
-
-.hero h1{
-    font-size:38px;
+  nav{padding:14px 4%;}
+  .hero{padding:90px 4% 60px;}
+  section{padding:60px 4%;}
+  .stats-strip{padding:28px 4%;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .stat-item h2{font-size:36px;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .why-card{padding:22px 18px;}
+  .process-grid{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .guarantee-grid{grid-template-columns:1fr;}
+  .contact-left{padding:28px 22px;}
+  .form-box{padding:28px 22px;}
+  .calc-form{padding:24px 20px;}
+  .calc-result{padding:24px 20px;}
+  .trust-section .sec-inner{gap:20px;justify-content:flex-start;}
+  .hero-trust{gap:14px;}
+  .contact-btns{flex-direction:column;}
+  .wabtn,.mailbtn{justify-content:center;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+  .map-wrap{height:240px;}
 }
 
-.stats-grid{
-    grid-template-columns:1fr;
+@media(max-width:400px){
+  .hero h1{font-size:30px;}
+  .why-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline{text-align:center;}
 }
-
-.section-title h2{
-    font-size:34px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<header>
-
-<div class="container">
-
-<nav>
-
-<div class="logo">
-Nexa<span>Bricks</span>
-</div>
-
-<div class="nav-links">
-<a href="yeida-web.html">Home</a>
-<a href="#technology">Technology</a>
-<a href="#process">Process</a>
-<a href="#">Projects</a>
-<a href="#consultation">Contact</a>
-</div>
-
+<!-- ═══ NAV ═══ -->
+<nav id="mainNav">
+  <a href="#" class="logo">Nexa<span>Bricks</span></a>
+  <div class="nav-links">
+    <a href="#why">Why Us</a>
+    <a href="#process">Process</a>
+    <a href="#projects">Projects</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#contact">Contact</a>
+    <a href="#calculator" class="nav-cta">Get Free Estimate</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div class="hero">
-
-<div>
-
-<div class="badge">
-Building Premium Homes with Engineering Precision
+<!-- Mobile Drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#why" onclick="closeMobile()">Why Us</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#calculator" onclick="closeMobile()">Cost Calculator</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#calculator" class="mob-cta" onclick="closeMobile()">⚡ Get Free Cost Estimate</a>
 </div>
 
-<h1>
-Build Your <span>Completion Ready House</span> Faster & Smarter
-</h1>
-
-<p>
-A modern construction company combining AI, engineering systems,
-live tracking, smart estimation, and transparent execution for
-YEIDA property owners.
-</p>
-
-<div class="cta-group">
-
-<a href="#consultation" class="btn primary">
-Get AI Cost Estimate
-</a>
-
-<a href="#technology" class="btn secondary">
-Explore Technology
-</a>
-
-</div>
-
-</div>
-
-<div class="dashboard">
-
-<h3>Smart Construction Dashboard</h3>
-
-<div class="metric">
-<strong>AI Cost Prediction</strong>
-<span>Enabled</span>
-</div>
-
-<div class="metric">
-<strong>Live Site Tracking</strong>
-<span>24x7</span>
-</div>
-
-<div class="metric">
-<strong>Material Analytics</strong>
-<span>Realtime</span>
-</div>
-
-<div class="metric">
-<strong>Completion Timeline</strong>
-<span>Optimized</span>
-</div>
-
-<div class="metric">
-<strong>YEIDA Compliance</strong>
-<span>Monitored</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill">🏆 YEIDA's Most Trusted Construction Partner</div>
+      <h1>Build Your Dream Home <em>Faster &amp; Smarter</em></h1>
+      <p class="hero-sub">
+        Nexa Bricks delivers premium YEIDA homes with AI-backed planning, live site tracking,
+        fixed-price contracts, and a proven 3-month end-to-end timeline.
+      </p>
+      <div class="hero-btns">
+        <a href="#calculator" class="btn-primary">🧮 Try AI Cost Calculator</a>
+        <a href="#process" class="btn-outline">See Our Process →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span>✅</span> Fixed-Price Contracts</div>
+        <div class="trust-item"><span>📸</span> Daily Site Updates</div>
+        <div class="trust-item"><span>🛡️</span> 6-Month Defect Warranty</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Live Project Dashboard</div>
+      <div class="metric-row"><strong>AI Cost Prediction</strong><span class="metric-badge badge-green">✓ Active</span></div>
+      <div class="metric-row"><strong>Live Site Tracking</strong><span class="metric-badge badge-blue">24×7</span></div>
+      <div class="metric-row"><strong>Material Analytics</strong><span class="metric-badge badge-green">Realtime</span></div>
+      <div class="metric-row"><strong>Completion Timeline</strong><span class="metric-badge badge-yellow">~3 Months</span></div>
+      <div class="metric-row"><strong>YEIDA Compliance</strong><span class="metric-badge badge-green">✓ Monitored</span></div>
+      <div class="metric-row"><strong>Client Rating</strong><span class="metric-badge badge-yellow">⭐ 4.8 / 5</span></div>
+    </div>
+  </div>
 </header>
 
-<div class="container stats-wrapper">
-
-<div class="stats">
-
-<div class="stats-grid">
-
-<div class="stat">
-<h2>AI</h2>
-<p>Driven Planning</p>
+<!-- ═══ STATS ═══ -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item fade-up"><h2>25+</h2><p>Homes Constructed</p></div>
+    <div class="stat-item fade-up"><h2>4.8★</h2><p>Average Client Rating</p></div>
+    <div class="stat-item fade-up"><h2>~3 Mo</h2><p>End-to-End Timeline</p></div>
+    <div class="stat-item fade-up"><h2>100%</h2><p>YEIDA Compliant</p></div>
+  </div>
 </div>
 
-<div class="stat">
-<h2>100%</h2>
-<p>Transparent Workflow</p>
+<!-- ═══ TRUST BADGES ═══ -->
+<div class="trust-section">
+  <div class="sec-inner">
+    <div class="trust-badge"><div class="tb-icon">📋</div>YEIDA Authority Registered</div>
+    <div class="trust-badge"><div class="tb-icon">🔒</div>Fixed-Price Contracts</div>
+    <div class="trust-badge"><div class="tb-icon">📸</div>Daily Photo Reports</div>
+    <div class="trust-badge"><div class="tb-icon">🛡️</div>6-Month Defect Warranty</div>
+    <div class="trust-badge"><div class="tb-icon">⚡</div>AI-Powered Planning</div>
+    <div class="trust-badge"><div class="tb-icon">🏗️</div>Structural Engineer on Site</div>
+  </div>
 </div>
 
-<div class="stat">
-<h2>24x7</h2>
-<p>Digital Tracking</p>
-</div>
-
-<div class="stat">
-<h2>Fast</h2>
-<p>Completion Focused</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-Why Modern Homeowners Choose Nexa Bricks
-</h2>
-
-<p>
-Unlike traditional contractors, we combine construction expertise,
-AI-enabled workflows, engineering systems, and digital transparency
-to create a premium building experience.
-</p>
-
-</div>
-
-<div class="features">
-
-<div class="card">
-
-<div class="icon">📊</div>
-
-<h3>AI Cost Estimation</h3>
-
-<p>
-Intelligent cost prediction for material, labour,
-timeline, and project execution.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">📱</div>
-
-<h3>Live Project Tracking</h3>
-
-<p>
-Track construction progress, milestones,
-site updates, and reports digitally.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">🧠</div>
-
-<h3>Engineering Driven Process</h3>
-
-<p>
-Construction workflow inspired by modern
-software engineering lifecycle and quality systems.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon">⚡</div>
-
-<h3>Faster Completion</h3>
-
-<p>
-Execution focused on YEIDA completion
-timelines and avoiding unnecessary penalties.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ═══ WHY ═══ -->
+<section id="why">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label">Why Nexa Bricks</span>
+      <h2 class="sec-title">The Smarter Way to Build in YEIDA</h2>
+      <p class="sec-sub">Unlike traditional contractors, we combine AI, engineering systems, and digital transparency for a premium build experience — delivered in 3 months.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="wc-icon">🧮</div>
+        <h3>AI Cost Estimation</h3>
+        <p>Transparent, intelligent cost prediction based on your plot, material grade, floors, and finish — accurate to the rupee.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">📱</div>
+        <h3>Live Project Tracking</h3>
+        <p>Daily photo updates, milestone tracking, and real-time material delivery reports through your digital client dashboard.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">🏗️</div>
+        <h3>Engineering-Driven Build</h3>
+        <p>Structured workflows, on-site structural engineer, and documented quality checks at every stage of construction.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">⚡</div>
+        <h3>3-Month Completion</h3>
+        <p>Proven execution designed to meet YEIDA deadlines and avoid penalties. Faster than any traditional contractor — guaranteed.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">🔒</div>
+        <h3>Fixed-Price Contracts</h3>
+        <p>No surprise bills. Everything agreed upfront with a transparent scope, signed contract, and milestone-based payments.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">🏆</div>
+        <h3>25+ Homes Delivered</h3>
+        <p>Proven track record across YEIDA sectors with a 4.8★ client satisfaction rating on every completed project.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">📋</div>
+        <h3>YEIDA Compliance Ready</h3>
+        <p>Structural drawings, completion documentation, and construction fully aligned with YEIDA authority standards.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="wc-icon">🔧</div>
+        <h3>Post-Build Warranty</h3>
+        <p>6-month defect liability period with dedicated support. We stand fully behind every home we build.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="dark-section" id="technology">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2 style="color:white;">
-Technology That Distinguishes Us
-</h2>
-
-<p style="color:#b5c4dd;">
-Built for educated homeowners who value systems,
-tracking, transparency, and accountability.
-</p>
-
-</div>
-
-<div class="tech-grid">
-
-<div class="tech-card">
-
-<h3>AI Completion Risk System</h3>
-
-<p>
-Predict delays and optimize project timelines using intelligent workflows.
-</p>
-
-</div>
-
-<div class="tech-card">
-
-<h3>Digital Customer Dashboard</h3>
-
-<p>
-Access contracts, invoices, reports, and construction updates from one portal.
-</p>
-
-</div>
-
-<div class="tech-card">
-
-<h3>Smart Material Analytics</h3>
-
-<p>
-Track cement, steel, and procurement trends with intelligent analytics.
-</p>
-
-</div>
-
-<div class="tech-card">
-
-<h3>Future Ready PropTech Platform</h3>
-
-<p>
-Designed to evolve into a scalable AI-powered construction technology company.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ═══ PROCESS ═══ -->
+<section class="process-section" id="process">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label" style="background:rgba(247,166,20,0.15);color:var(--accent);">Our Process</span>
+      <h2 class="sec-title" style="color:#fff;">Plot to Completion in 3 Months</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.5);">A disciplined, phase-wise execution system engineered for speed, quality, and complete transparency.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-up">
+        <div class="step-num">1</div>
+        <h3>Site Analysis & Estimation</h3>
+        <p>We assess your plot, YEIDA norms, scope, and generate an AI-backed cost estimate, structural plan, and execution timeline.</p>
+        <span class="process-duration">Week 1–2</span>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">2</div>
+        <h3>Design & Contract Signing</h3>
+        <p>Structural drawings, layout finalisation, material selection, fixed-price contract signing, and permit documentation.</p>
+        <span class="process-duration">Week 2–3</span>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">3</div>
+        <h3>Foundation & Structure</h3>
+        <p>Foundation laying, column casting, brickwork, RCC slab — tracked live with daily reports and photo updates.</p>
+        <span class="process-duration">Week 3–7</span>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">4</div>
+        <h3>Superstructure & Roof</h3>
+        <p>Upper floors, staircase, roof casting, lintel beams, and waterproofing of terrace and all wet areas.</p>
+        <span class="process-duration">Week 7–9</span>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">5</div>
+        <h3>MEP & Internal Finishes</h3>
+        <p>Electrical wiring, plumbing, sanitary fittings, plastering, tiling, and all internal finishing works.</p>
+        <span class="process-duration">Week 9–11</span>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">6</div>
+        <h3>Quality Check & Handover</h3>
+        <p>Final structural inspection, quality audit, snagging list resolution, YEIDA completion support, and key handover.</p>
+        <span class="process-duration">Week 11–13</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="process">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Our Construction Workflow</h2>
-
-<p>
-Professional execution system inspired by engineering delivery lifecycle.
-</p>
-
-</div>
-
-<div class="process">
-
-<div class="process-card">
-
-<div class="step">1</div>
-
-<h3>Requirement Analysis</h3>
-
-<p>
-Understand plot size, scope, budget, and completion goals.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="step">2</div>
-
-<h3>AI Planning & Estimation</h3>
-
-<p>
-Generate intelligent cost estimates and execution roadmap.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="step">3</div>
-
-<h3>Execution & Monitoring</h3>
-
-<p>
-Track every construction milestone through digital systems.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="step">4</div>
-
-<h3>Completion Readiness</h3>
-
-<p>
-Support finishing and compliance preparation for completion process.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label">Our Work</span>
+      <h2 class="sec-title">25+ Homes Built Across YEIDA</h2>
+      <p class="sec-sub">A selection of homes delivered across YEIDA sectors — on time, within budget, and 4.8★ rated.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card fade-up">
+        <div class="proj-img" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&fit=crop')">
+          <span class="proj-tag">✓ Completed</span>
+        </div>
+        <div class="proj-body">
+          <h3>Sector 18 – G+1 Residence</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">130 sqm plot · Premium finish · YEIDA compliant · OPC 53 + Fe-500</p>
+          <div class="proj-meta">
+            <span>📅 11 weeks</span>
+            <span>⭐ 4.9</span>
+            <span>💰 ₹42–48L</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card fade-up">
+        <div class="proj-img" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&fit=crop')">
+          <span class="proj-tag">✓ Completed</span>
+        </div>
+        <div class="proj-body">
+          <h3>Sector 20 – G+2 Villa</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">200 sqm plot · Ultra-premium · Smart home wiring · AAC blocks</p>
+          <div class="proj-meta">
+            <span>📅 13 weeks</span>
+            <span>⭐ 4.8</span>
+            <span>💰 ₹95L–1.1Cr</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card fade-up">
+        <div class="proj-img" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800&fit=crop')">
+          <span class="proj-tag">✓ Completed</span>
+        </div>
+        <div class="proj-body">
+          <h3>Sector 22 – Ground Floor</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;">100 sqm plot · Standard finish · Covered parking · Basement</p>
+          <div class="proj-meta">
+            <span>📅 10 weeks</span>
+            <span>⭐ 4.7</span>
+            <span>💰 ₹28–34L</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="consultation" id="location">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Get In Touch</h2>
-
-<p>
-Reach out to us for consultation or visit our office. Our engineering team is ready to help you build your dream home.
-</p>
-
-</div>
-
-<div class="consultation">
-
-<div class="left-panel">
-
-<div class="badge">
-AI Powered Construction Platform
-</div>
-
-<h2>
-Build Your YEIDA House Smarter
-</h2>
-
-<p style="color:#dce8ff;line-height:1.9;margin-bottom:30px;">
-A modern construction platform combining AI-enabled planning,
-transparent execution, live tracking, and completion-focused workflows.
-</p>
-
-<div class="feature-item">
-<h3>✓ AI Cost Estimation</h3>
-<p>Smart construction budget prediction based on plot size and scope.</p>
-</div>
-
-<div class="feature-item">
-<h3>✓ YEIDA Completion Planning</h3>
-<p>Structured planning to avoid completion penalties and delays.</p>
-</div>
-
-<div class="feature-item">
-<h3>✓ Live Project Dashboard</h3>
-<p>Track construction progress digitally with real-time updates.</p>
-</div>
-
-<div style="margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.08); border-radius: 14px;">
-<p style="color: #b5c4dd; margin-bottom: 6px; font-size: 13px;">📍 Address</p>
-<p style="font-weight: 600; color: white;">O 647 Sector 20 YEIDA</p>
-</div>
-
-<div style="margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.08); border-radius: 14px;">
-<p style="color: #b5c4dd; margin-bottom: 6px; font-size: 13px;">📱 WhatsApp</p>
-<a href="https://wa.me/919818129248" style="font-weight: 600; color: #25D366; text-decoration: none;">+91 98181 29248</a>
-</div>
-
-<div style="margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.08); border-radius: 14px;">
-<p style="color: #b5c4dd; margin-bottom: 6px; font-size: 13px;">✉️ Email</p>
-<a href="mailto:contact@nexabricks.in" style="font-weight: 600; color: #69b4ff; text-decoration: none;">contact@nexabricks.in</a>
-</div>
-
-<div class="contact-buttons" style="margin-top: 24px; display: flex; gap: 15px; flex-wrap: wrap;">
-<a href="https://wa.me/919818129248" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 14px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.3s;">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-WhatsApp Us
-</a>
-<a href="mailto:contact@nexabricks.in" style="display: inline-flex; align-items: center; gap: 10px; background: #1677ff; color: white; padding: 14px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.3s;">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-Email Us
-</a>
-</div>
-
-</div>
-
-<div class="form-box">
-
-<h2>Request Consultation</h2>
-
-<p>
-Fill the details below and our engineering team will contact you shortly.
-</p>
-<script type="text/javascript" src="https://form.jotform.com/jsform/261492059413053"></script>
-<div class="success" id="successMessage">
-Consultation Request Submitted Successfully.
-</div>
-
-</div>
-
-</div>
-
-<!-- Google Map -->
-<div style="margin-top: 50px; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 28px rgba(0,0,0,0.06); height: 350px;">
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112173.2706478598!2d77.41aboratory5969!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e055e93817%3A0x82be353210a8e9c6!2sGreater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1685000000000!5m2!1sen!2sin"
-width="100%"
-height="100%"
-style="border:0;"
-allowfullscreen=""
-loading="lazy"
-referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</div>
-
-</div>
-
+<!-- ═══ REVIEWS ═══ -->
+<section style="background:#fff;">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label">Client Reviews</span>
+      <h2 class="sec-title">What Our Homeowners Say</h2>
+      <p class="sec-sub">Real reviews from YEIDA homeowners who trusted Nexa Bricks to build their homes.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Nexa Bricks completed my G+1 house in Sector 18 in just 11 weeks — exactly as promised. The daily photo updates gave me total peace of mind while I was in Bangalore. Highly professional team."</p>
+        <div class="reviewer">
+          <div class="rev-avatar">RK</div>
+          <div><h4>Rajesh Kumar</h4><p>Sector 18 · 130 sqm</p></div>
+        </div>
+      </div>
+      <div class="review-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"The AI cost estimate was spot-on — no hidden charges whatsoever. The fixed-price contract gave us full confidence. Build quality is excellent and the team is very responsive. Absolutely recommend."</p>
+        <div class="reviewer">
+          <div class="rev-avatar">PS</div>
+          <div><h4>Priya Sharma</h4><p>Sector 20 · 200 sqm</p></div>
+        </div>
+      </div>
+      <div class="review-card fade-up">
+        <div class="stars">★★★★☆</div>
+        <p class="review-text">"Very transparent process and excellent communication throughout. They guided us on YEIDA completion documentation as well. Finished slightly ahead of the 3-month timeline. Very satisfied overall."</p>
+        <div class="reviewer">
+          <div class="rev-avatar">AM</div>
+          <div><h4>Anil Mehta</h4><p>Sector 22 · 100 sqm</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══ GUARANTEE ═══ -->
+<section class="guarantee-section">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label" style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.8);">Our Commitment</span>
+      <h2 class="sec-title" style="color:#fff;">The Nexa Bricks Guarantee</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.55);">We back every promise with a written contract. No surprises, no shortcuts.</p>
+    </div>
+    <div class="guarantee-grid">
+      <div class="g-card fade-up">
+        <div class="gi">📅</div>
+        <h3>3-Month Delivery Promise</h3>
+        <p>If we exceed the agreed timeline without cause, we cover the carrying cost — written into your contract.</p>
+      </div>
+      <div class="g-card fade-up">
+        <div class="gi">💰</div>
+        <h3>Fixed-Price Assurance</h3>
+        <p>Your signed quote is your final price. No mid-project cost escalations, no hidden charges, ever.</p>
+      </div>
+      <div class="g-card fade-up">
+        <div class="gi">🛡️</div>
+        <h3>6-Month Defect Warranty</h3>
+        <p>We inspect and fix any structural or finish defect within 6 months of handover at zero cost to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CALCULATOR ═══ -->
+<section class="calculator-section" id="calculator">
+  <div class="sec-inner">
+    <div class="sec-head fade-up">
+      <span class="sec-label" style="background:rgba(247,166,20,0.15);color:var(--accent);">AI Cost Calculator</span>
+      <h2 class="sec-title" style="color:#fff;">Estimate Your Construction Cost</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.45);">Get an instant cost range in seconds. Interior design, furniture, and landscaping are not included.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-form fade-up">
+        <h3>Enter Your Details</h3>
+        <p class="sub">All fields improve accuracy. Civil construction costs only — interiors not included.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Plot Size (sq metres)</label>
+            <input type="number" id="plotSize" placeholder="e.g. 120" min="30" max="1000"/>
+          </div>
+          <div class="form-group">
+            <label>Number of Floors</label>
+            <select id="floors">
+              <option value="1">Ground Floor (G)</option>
+              <option value="1.5">G + Basement</option>
+              <option value="2" selected>G + 1 Floor</option>
+              <option value="2.5">G + 1 + Basement</option>
+              <option value="3">G + 2 Floors</option>
+              <option value="3.5">G + 2 + Basement</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Construction Quality</label>
+            <select id="quality">
+              <option value="standard">Standard</option>
+              <option value="premium" selected>Premium</option>
+              <option value="ultra">Ultra Premium</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Cement Grade</label>
+            <select id="cement">
+              <option value="opc43">OPC 43 Grade (Standard)</option>
+              <option value="opc53" selected>OPC 53 Grade (Premium)</option>
+              <option value="ppc">PPC (Eco / Durability)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Steel / TMT Grade</label>
+            <select id="steel">
+              <option value="fe415">Fe-415 (Standard)</option>
+              <option value="fe500" selected>Fe-500 (Premium)</option>
+              <option value="fe550">Fe-550D (Ultra)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brick Type</label>
+            <select id="brick">
+              <option value="red">Red Brick (Standard)</option>
+              <option value="fly" selected>Fly Ash Brick (Recommended)</option>
+              <option value="aac">AAC Block (Premium)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Flooring Type</label>
+            <select id="flooring">
+              <option value="basic">Basic Tiles (₹40–60/sqft)</option>
+              <option value="vitrified" selected>Vitrified Tiles (₹80–120/sqft)</option>
+              <option value="marble">Marble / Granite (₹180+/sqft)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Waterproofing</label>
+            <select id="waterproof">
+              <option value="basic">Basic (terrace only)</option>
+              <option value="standard" selected>Standard (terrace + bathrooms)</option>
+              <option value="advanced">Advanced (full structure)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Additional Features</label>
+          <select id="extras">
+            <option value="none">None</option>
+            <option value="parking">Covered Parking</option>
+            <option value="staircase">Decorative Staircase</option>
+            <option value="both">Parking + Decorative Staircase</option>
+            <option value="solar">Solar Provision</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Location / Sector</label>
+          <select id="sector">
+            <option value="standard">Standard Sectors (18, 19, 20, 22…)</option>
+            <option value="premium">Premium Sectors (near expressway / commercial)</option>
+          </select>
+        </div>
+
+        <button class="calc-btn" onclick="calculateCost()">⚡ Calculate My Cost Estimate</button>
+
+        <p class="disclaimer">
+          ⚠️ Covers civil construction only. Interior design, modular kitchen, furniture, landscaping, and YEIDA registration charges are <strong>not included</strong>. Rates based on YEIDA market benchmarks 2025–26. May vary ±10% based on site conditions.
+        </p>
+      </div>
+
+      <div class="calc-result" id="calcResult">
+        <div class="result-placeholder" id="resultPlaceholder">
+          <div class="big-icon">🧮</div>
+          <p>Fill in your details and click <strong style="color:rgba(255,255,255,0.55);">Calculate</strong> to get your personalised cost range in seconds.</p>
+        </div>
+        <div class="loading-state" id="loadingState">
+          <div class="spinner"></div>
+          <p class="loading-text">Calculating your estimate…</p>
+        </div>
+        <div class="result-content" id="resultContent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="sec-inner">
+    <div class="sec-head center fade-up">
+      <span class="sec-label">Get In Touch</span>
+      <h2 class="sec-title">Ready to Start Building?</h2>
+      <p class="sec-sub">Reach out for a free site consultation. Our engineering team will visit your plot and provide a detailed estimate.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left fade-up">
+        <div style="display:inline-block;background:rgba(247,166,20,0.15);border:1px solid rgba(247,166,20,0.25);color:var(--accent);font-size:11px;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:18px;text-transform:uppercase;letter-spacing:2px;">AI-Powered Construction Platform</div>
+        <h2>Build Your YEIDA Home Smarter</h2>
+        <p>Transparent execution, live tracking, and engineering-driven delivery. 25+ homes built. 4.8★ rated. 3-month promise.</p>
+        <div class="contact-item">
+          <span style="font-size:20px;">📍</span>
+          <div>
+            <p class="ci-label">Office Address</p>
+            <p class="ci-val">O 647, Sector 20, YEIDA, Greater Noida</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span style="font-size:20px;">📱</span>
+          <div>
+            <p class="ci-label">WhatsApp</p>
+            <a href="https://wa.me/919818129248" class="ci-val">+91 98181 29248</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span style="font-size:20px;">✉️</span>
+          <div>
+            <p class="ci-label">Email</p>
+            <a href="mailto:contact@nexabricks.in" class="ci-val">contact@nexabricks.in</a>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="https://wa.me/919818129248" class="wabtn" target="_blank">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="mailto:contact@nexabricks.in" class="mailbtn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Us
+          </a>
+        </div>
+      </div>
+      <div class="form-box fade-up">
+        <h2>Request Free Consultation</h2>
+        <p class="sub">Our engineering team will call you back within 24 hours to discuss your project.</p>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/261492059413053"></script>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112173.27!2d77.4900!3d28.4594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e055e93817%3A0x82be353210a8e9c6!2sGreater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1685000000000!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
-
-<div class="container">
-
-<p>
-© 2026 Nexa Bricks | Smart Construction Platform
-</p>
-
-</div>
-
+  <div class="footer-inner">
+    <div class="footer-logo">Nexa<span>Bricks</span></div>
+    <div class="footer-links">
+      <a href="#why">Why Us</a>
+      <a href="#process">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© 2026 Nexa Bricks · YEIDA, Greater Noida · <a href="mailto:contact@nexabricks.in">contact@nexabricks.in</a></p>
+  </div>
 </footer>
 
 <script>
-
-const form = document.getElementById("leadForm");
-
-form.addEventListener("submit", async function(e){
-
-    e.preventDefault();
-
-    const formData = {
-        name: form.name.value,
-        phone: form.phone.value,
-        email: form.email.value,
-        plotSize: form.plotSize.value,
-        constructionStatus: form.constructionStatus.value,
-        sector: form.sector.value,
-        pocket: form.pocket.value,
-        plotNumber: form.plotNumber.value,
-        budget: form.budget.value,
-        timeline: form.timeline.value,
-        message: form.message.value,
-    };
-
-    console.log(formData);
-
-    try{
-
-        /*
-        Replace API URL below with your backend endpoint
-        */
-
-        const response = await fetch(
-            "https://yourdomain.com/api/leads",
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify(formData)
-            }
-        );
-
-        const data = await response.json();
-
-        console.log(data);
-
-        document.getElementById("successMessage").style.display = "block";
-
-        form.reset();
-
-    }catch(error){
-
-        console.error(error);
-
-        // Show success message anyway for demo purposes
-        document.getElementById("successMessage").style.display = "block";
-        form.reset();
-
-    }
-
+// ─── MOBILE NAV ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+// Close on outside click
+document.addEventListener('click',(e)=>{
+  if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){
+    closeMobile();
+  }
 });
 
-</script>
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 
+// ─── COST CALCULATOR ───
+function calculateCost(){
+  const plotSqm = parseFloat(document.getElementById('plotSize').value);
+  if(!plotSqm||plotSqm<30){alert('Please enter a valid plot size (minimum 30 sqm).');return;}
+  document.getElementById('resultPlaceholder').style.display='none';
+  const loader=document.getElementById('loadingState');
+  loader.style.display='flex';
+  document.getElementById('resultContent').style.display='none';
+  setTimeout(()=>{loader.style.display='none';showResult(plotSqm);},1200);
+}
+
+function showResult(plotSqm){
+  const floors=parseFloat(document.getElementById('floors').value);
+  const quality=document.getElementById('quality').value;
+  const cement=document.getElementById('cement').value;
+  const steel=document.getElementById('steel').value;
+  const brick=document.getElementById('brick').value;
+  const flooring=document.getElementById('flooring').value;
+  const waterproof=document.getElementById('waterproof').value;
+  const extras=document.getElementById('extras').value;
+  const sector=document.getElementById('sector').value;
+
+  // sqm → sqft
+  const plotSqft=plotSqm*10.764;
+  // YEIDA 60% ground coverage × floors
+  const floorSqft=plotSqft*0.6*floors;
+
+  // Base rate ₹/sqft
+  const baseRates={standard:[1200,1400],premium:[1500,1800],ultra:[1900,2200]};
+  let [rLow,rHigh]=baseRates[quality];
+
+  // Cement
+  if(cement==='opc53'){rLow+=30;rHigh+=50;}
+  else if(cement==='ppc'){rLow+=10;rHigh+=30;}
+  // Steel
+  if(steel==='fe500'){rLow+=40;rHigh+=60;}
+  else if(steel==='fe550'){rLow+=80;rHigh+=110;}
+  // Brick
+  if(brick==='fly'){rLow+=15;rHigh+=25;}
+  else if(brick==='aac'){rLow+=50;rHigh+=80;}
+  // Flooring
+  const fr=flooring==='basic'?40:flooring==='vitrified'?90:190;
+  rLow+=fr*0.6;rHigh+=fr*0.8;
+  // Waterproofing
+  if(waterproof==='standard'){rLow+=20;rHigh+=35;}
+  else if(waterproof==='advanced'){rLow+=50;rHigh+=80;}
+
+  let costLow=floorSqft*rLow;
+  let costHigh=floorSqft*rHigh;
+
+  // Extras
+  if(extras==='parking'){costLow+=80000;costHigh+=120000;}
+  else if(extras==='staircase'){costLow+=100000;costHigh+=160000;}
+  else if(extras==='both'){costLow+=180000;costHigh+=280000;}
+  else if(extras==='solar'){costLow+=120000;costHigh+=200000;}
+  // Sector premium
+  if(sector==='premium'){costLow*=1.06;costHigh*=1.10;}
+
+  const tL=v=>(v/100000).toFixed(1);
+  const cL=tL(costLow),cH=tL(costHigh);
+  const qualityLabel={standard:'Standard',premium:'Premium',ultra:'Ultra Premium'}[quality];
+  const floorLabel=document.getElementById('floors').options[document.getElementById('floors').selectedIndex].text;
+
+  const html=`
+    <p class="result-header">Your Estimated Cost Range</p>
+    <div class="cost-range-box">
+      <div class="cost-range">₹${cL} – ₹${cH} Lakhs</div>
+      <p class="cost-sub">${Math.round(floorSqft).toLocaleString()} sq.ft built-up · ${qualityLabel} · ${floorLabel}</p>
+    </div>
+    <p class="result-header" style="margin-top:2px;">Cost Breakdown (Approx.)</p>
+    <div class="breakdown-list">
+      <div class="breakdown-item"><span>🏗️ Structure & Foundation (45%)</span><strong>₹${tL(costLow*.45)}–${tL(costHigh*.45)}L</strong></div>
+      <div class="breakdown-item"><span>🧱 Brickwork & Masonry (15%)</span><strong>₹${tL(costLow*.15)}–${tL(costHigh*.15)}L</strong></div>
+      <div class="breakdown-item"><span>🏠 Roof & Slab Work (12%)</span><strong>₹${tL(costLow*.12)}–${tL(costHigh*.12)}L</strong></div>
+      <div class="breakdown-item"><span>🎨 Plastering, Flooring & Finishes (18%)</span><strong>₹${tL(costLow*.18)}–${tL(costHigh*.18)}L</strong></div>
+      <div class="breakdown-item"><span>⚡ Electrical, Plumbing & Sanitation (10%)</span><strong>₹${tL(costLow*.10)}–${tL(costHigh*.10)}L</strong></div>
+    </div>
+    <div class="note-box">
+      <p>✅ <strong>Included:</strong> Civil work, structural steel & cement, brickwork, roofing, flooring, plastering, electrical, plumbing & sanitary fittings, waterproofing.</p>
+      <p style="margin-top:6px;">❌ <strong>Not Included:</strong> Interior design, modular kitchen, furniture, false ceiling, painting, landscaping, YEIDA registration/completion charges.</p>
+    </div>
+    <a href="#contact" style="display:block;text-align:center;text-decoration:none;margin-top:2px;padding:14px;border-radius:13px;font-family:'Poppins',sans-serif;font-weight:800;font-size:14px;background:linear-gradient(135deg,var(--accent),#f5c842);color:var(--navy);">📞 Book Free Site Consultation →</a>
+  `;
+  const content=document.getElementById('resultContent');
+  content.innerHTML=html;
+  content.style.display='flex';
+  // Scroll result into view on mobile
+  if(window.innerWidth<900){
+    setTimeout(()=>content.scrollIntoView({behavior:'smooth',block:'start'}),100);
+  }
+}
+</script>
 </body>
 </html>
